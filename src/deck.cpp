@@ -19,13 +19,13 @@ using namespace std;
 deck::deck()
 // constructor for the DECK class, creating a list of 52-card
 {
-    string suits[4] = {"Club", "Diamond", "Heart", "Spade"};
+    string suits[4] = {"Spade", "Heart", "Diamond", "Club"};
 
     // for each suit
     for (int i = 0; i < 4; i++)
     {
         // for each value within the suit
-        for (int fV = 1; fV <= 13; fV++) 
+        for (int fV = 13; fV >= 1; fV--) 
         {
             addCard(suits[i], fV);
         }
@@ -45,7 +45,7 @@ void deck::shuffle()
 {
     cout << "><><>< Shuffling initiated ><><><\n*shuffling noises...*\n";
 
-    if(front->next == NULL)
+    if(front == nullptr || front->next == NULL)
     // make sure deck is not empty
     {
         return;
