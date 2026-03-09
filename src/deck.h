@@ -22,9 +22,17 @@ class deck
         // constructor
         deck();
 
+        //destructor
+        ~deck();
+
         // functions
         void shuffle();
         void addCard(std::string s, int fV);
+
+
+        
+        node<card>* deal(); // remove and return the top card node of the deck
+        void replace(node<card>* c); // pass a card node as parameter to be added to the bottom of the deck
         
         // operators
         friend std::ostream& operator<<(std::ostream& ostr, const deck& d);

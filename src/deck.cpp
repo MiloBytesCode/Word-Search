@@ -33,12 +33,69 @@ deck::deck()
 
 } // end deck constructor
 
+
+// destructor for deck class
+deck::~deck()
+{
+    node<card>* curr = front;
+    while (curr != nullptr)
+    {
+        node<card>* temp = curr;
+        curr = curr->next;
+        delete temp; // deallocate memory for node
+    }
+} // end deck destructor
+
+
 void deck::addCard(std::string s, int fV)
 // puts a new card on the front of the deck
 {
     card new_card(s, fV);
     front = new node<card>(new_card, front);  
 } // end addCard
+
+
+node<card>* deck::deal()
+// removes and returns the top card node of the deck
+{
+    if (front == nullptr)
+    {
+        return nullptr; // return null if deck is empty
+    }
+
+    // store card node, update front, return the top card node
+    node<card>* top_card = front; 
+    front = front->next; 
+    top_card->next = nullptr; 
+
+    return top_card; 
+} 
+
+void deck::replace(node<card>* c)
+// takes a card node as parameter and add it to the bottom of the deck
+{
+    if (c == nullptr)
+    {
+        return; 
+    }
+    
+    c->next = nullptr; // make sure card node points to null
+
+    if (front == nullptr)
+    {
+        front = c; //set front to new node when empty deck
+        return;
+    }
+
+    // go to the end of the deck and add the card node
+    node<card>* curr = front;
+    while (curr->next != nullptr)
+    {
+        curr = curr->next; 
+    }
+    curr->next = c; 
+}
+
 
 void deck::shuffle()
 // shuffles the entire deck into a random arrangement

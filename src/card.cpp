@@ -19,6 +19,25 @@ card::card(string s, int fV)
     this->faceVal = fV;
 }
 
+// copy constructor
+card::card(const card& other)
+{
+    suit = other.suit;
+    faceVal = other.faceVal;
+}
+
+// copy assignment operator
+card& card::operator=(const card& other)
+{
+    if (this != &other) // check for self-assignment
+    {
+        suit = other.suit;
+        faceVal = other.faceVal;
+    }
+    return *this; // return current object
+}
+
+
 int card::getValue() const
 // returns the face value of the card without modifying values
 {
@@ -79,3 +98,5 @@ std::ostream& operator<<(std::ostream& ostr, const card& c)
 
     return ostr;
 } // end operator overload
+
+

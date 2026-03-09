@@ -29,6 +29,9 @@ class card
         // operators
         friend std::ostream& operator<<(std::ostream& ostr, const card& c);
 
+        card(const card& other); // copy constructor
+        card& operator=(const card& other); // copy assignment operator
+
     private:
         std::string suit;
         int faceVal;
