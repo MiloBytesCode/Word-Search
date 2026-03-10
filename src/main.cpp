@@ -96,7 +96,7 @@ void playFlip()
         // reveal flipped card 
         cout << "Flipped card: " << flipped->nodeValue;
 
-        // get card value and suit to calculate score
+        // get card value and calculate score
         int val = flipped->nodeValue.getValue();
         string suit = flipped->nodeValue.getSuit();
 
