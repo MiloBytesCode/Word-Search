@@ -81,7 +81,7 @@ node<card>* deck::deal(int n)
 // removes and returns the top card node of the deck
 {
     
-    if (n > get_size()){
+    if (n < 0 || n >= get_size()){
         cout << "draw index out of range\n";
         return nullptr;
     }
@@ -96,9 +96,11 @@ node<card>* deck::deal(int n)
     node<card>* curr = front; 
     node<card>* previous = nullptr;
     if (n == 0) {
-        previous = front;
-        front = front-> next;
-        return previous;
+        node<card>* removed = front;
+        front = front->next; // update front to next node
+        removed->next = nullptr; // make sure removed node points to null
+        return removed; 
+        
     }
     for (int i = 0; i < n; i++) {
         previous = curr;
@@ -200,14 +202,14 @@ ostream& operator<<(ostream& ostr, const deck& d)
     return ostr;
 } // end operator overload
 
+// returns the number of cards in the deck
 int deck::get_size() {
-    node<card> *curr;
-    curr = front;
     int total = 0;
-    while (curr->next != nullptr) {
-        total += 1;
-        curr = curr -> next;
-    }
-    total += 1;
+    node<card>* curr = front;
+    while (curr != nullptr) {
+        total++;
+        curr = curr->next;          
+        
+}
     return total;
 }

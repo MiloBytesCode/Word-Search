@@ -74,6 +74,12 @@ void playFlip()
     // game loop
     while (true)
     {
+        // check if hand deck is empty, if so end game
+        if (hand_deck.get_size() == 0) {
+            cout << "You have no more cards to flip!\n";
+            break;
+        }
+
         cout << "\nPlz Enter f to flip a card or e to end and exit the game: ";
         cin >> userInput;
 
@@ -89,16 +95,17 @@ void playFlip()
         }
         
         int n;
+        // prompt user to pick a card from hand deck with with valid input handling
         while (true){
-            cout << "Please pick a card from your hand of " << hand_deck.get_size() << " cards: " ;
+            cout << "Please pick a card from your hand card number" << hand_deck.get_size() << " : " ;
             cin >> n;
             n -= 1;
 
-            if (n < hand_deck.get_size() + 1) {
-                break;
+            if (n >= 0 && n < hand_deck.get_size()) {
+            break;
             }
             else {
-                cout << "ERROR - please input a number from 0 to " << hand_deck.get_size() << endl;
+            cout << "Please enter a number from 1 to " << hand_deck.get_size() << endl;
             }
         }
             
