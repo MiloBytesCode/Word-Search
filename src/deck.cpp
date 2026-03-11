@@ -1,10 +1,12 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-2a
+// 11-zogwidrouhua-2b
 //
 // The DECK class implementation
 //
 // Contains the implementation for the DECK class, including the constructor
-// which produces an standard, ordered 52-card deck by default. 
+// which produces an standard, ordered 52-card deck by default. This class also
+// contains a shuffle function that rearrange deck. Fuctions to deal and replace cards
+// are also included.
 /* ========================================================================= */
 
 #include "deck.h"
