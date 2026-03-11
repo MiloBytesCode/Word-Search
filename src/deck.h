@@ -30,10 +30,11 @@ class deck
         // functions
         void shuffle();
         void addCard(std::string s, int fV);
+        int get_size();
 
 
         
-        node<card>* deal(); // remove and return the top card node of the deck
+        node<card>* deal(int n = 0); // remove and return the top card node of the deck
         void replace(node<card>* c); // pass a card node as parameter to be added to the bottom of the deck
         
         // operators

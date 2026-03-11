@@ -35,13 +35,16 @@ void playFlip()
     deck main_deck;
     cout << "Main Deck Created\n";
     cout << main_deck;
+    cout << endl;
 
     // shuffle the main deck 3 times as required
-    main_deck.shuffle();
-    main_deck.shuffle();
-    main_deck.shuffle();
+    for (int i = 0; i < 3; i++) {
+        main_deck.shuffle();
+        cout << endl;
+    }
+    
 
-    cout << "Main Deck Shuffled\n";
+    cout << "\nMain Deck Shuffled\n";
     cout << main_deck;
 
     deck hand_deck(false); // make empty hand deck
@@ -53,16 +56,16 @@ void playFlip()
         hand_deck.replace(main_deck.deal());
     }
 
-
-    cout << "Current Hand Deck\n";
+    //check for success
+    cout << "\nCurrent Hand Deck\n";
     cout << hand_deck;
 
-    cout << "Remaining Main Deck\n";
+    cout << "\nRemaining Main Deck\n";
     cout << main_deck;
 
 
     // newly added section to fulfill the interactive flip game shown in part a
-    cout << "Welcome to Flip game Let's Start!\n";
+    cout << "\nWelcome to Flip game Let's Start!\n";
 
     int score = 0;
     int numberOfFlips = 0;
@@ -84,14 +87,23 @@ void playFlip()
             cout << "Invalid choice. Please enter either f or e, try again\n";
             continue;
         }
+        
+        int n;
+        while (true){
+            cout << "Please pick a card from your hand of " << hand_deck.get_size() << " cards: " ;
+            cin >> n;
+            n -= 1;
 
-        node<card>* flipped = hand_deck.deal(); // flip the top card of the hand deck
-
-        if (flipped == nullptr) // check if hand deck is empty
-        {
-            cout << "There are no more cards left in hand deck.\n";
-            break;
+            if (n < hand_deck.get_size() + 1) {
+                break;
+            }
+            else {
+                cout << "ERROR - please input a number from 0 to " << hand_deck.get_size() << endl;
+            }
         }
+            
+
+        node<card>* flipped = hand_deck.deal(n); // flip the top card of the hand deck
 
         // reveal flipped card 
         cout << "Flipped card: " << flipped->nodeValue;
@@ -120,6 +132,9 @@ void playFlip()
         cout << "Current score: " << score << endl;
 
         delete flipped; // bonus section for b6 each card only flipped once
+
+        cout << endl << "remaining hand: " << endl;
+        cout << hand_deck;
     }
 
     cout << "\nGame Over!\n";

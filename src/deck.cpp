@@ -77,20 +77,37 @@ void deck::addCard(std::string s, int fV)
 } // end addCard
 
 
-node<card>* deck::deal()
+node<card>* deck::deal(int n)
 // removes and returns the top card node of the deck
 {
+    
+    if (n > get_size()){
+        cout << "draw index out of range\n";
+        return nullptr;
+    }
+         
+
     if (front == nullptr)
     {
         return nullptr; // return null if deck is empty
     }
 
     // store card node, update front, return the top card node
-    node<card>* top_card = front; 
-    front = front->next; 
-    top_card->next = nullptr; 
-
-    return top_card; 
+    node<card>* curr = front; 
+    node<card>* previous = nullptr;
+    if (n == 0) {
+        previous = front;
+        front = front-> next;
+        return previous;
+    }
+    for (int i = 0; i < n; i++) {
+        previous = curr;
+        curr = curr->next;
+    }
+    previous->next = curr -> next;
+    curr->next = nullptr;
+    
+    return curr;
 } 
 
 void deck::replace(node<card>* c)
@@ -182,3 +199,15 @@ ostream& operator<<(ostream& ostr, const deck& d)
 
     return ostr;
 } // end operator overload
+
+int deck::get_size() {
+    node<card> *curr;
+    curr = front;
+    int total = 0;
+    while (curr->next != nullptr) {
+        total += 1;
+        curr = curr -> next;
+    }
+    total += 1;
+    return total;
+}
