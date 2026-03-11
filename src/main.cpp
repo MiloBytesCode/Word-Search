@@ -7,6 +7,7 @@
 /* ========================================================================= */
 
 #include <iostream>
+#include <limits>
 #include "deck.h"
 #include "card.h"
 using namespace std;
@@ -97,8 +98,12 @@ void playFlip()
         int n;
         // prompt user to pick a card from hand deck with with valid input handling
         while (true){
-            cout << "Please pick a card from your hand card number" << hand_deck.get_size() << " : " ;
-            cin >> n;
+            cout << "Please pick a card from your hand card number"  << hand_deck.get_size() << " : " ;
+            while (!(std::cin >> n)) { //clean inputs
+            std::cout << "Invalid input. please enter an integer: ";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
             n -= 1;
 
             if (n >= 0 && n < hand_deck.get_size()) {
