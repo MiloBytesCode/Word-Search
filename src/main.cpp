@@ -1,9 +1,9 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-2a
+// 11-zogwidrouhua-2b
 //
 // PROJECT FLIP
 //
-// The runtime for Flip Project 2 Part A
+// The runtime for Flip Project 2 Part B
 /* ========================================================================= */
 
 #include <iostream>
