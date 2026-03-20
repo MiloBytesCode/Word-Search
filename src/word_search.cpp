@@ -3,13 +3,17 @@
 //
 // PROJECT WORD SEARCH
 //
-// The runtime for WORD SEARCH PART A
+// The implementation for the global functions
 /* ========================================================================= */
 
-#include <iostream>
-using namespace std;
+#include "word_search.h"
 
-int main()
+void findMatches(Dictionary& dict, Grid& grid)
 {
-    return 0;
-} 
+
+}
+
+void search()
+{
+
+}

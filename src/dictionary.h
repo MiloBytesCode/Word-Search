@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-2b
+// 11-zogwidrouhua-3a
 //
 // PROJECT WORD SEARCH
 //
@@ -7,13 +7,20 @@
 /* ========================================================================= */
 
 #include <string>
+#include <vector>
+#include <iostream>
 
 class Dictionary
 {
     public:
-        std::string readWord();
-        void selectionSort();
+        // functionality
+        Dictionary(std::string dictName);
+        void sort();
+        int wordLookup(std::string word) const;
+
+        // operators
+        friend std::ostream& operator<<(std::ostream& ostr, const Dictionary& dict);
 
     private:
-        int stuff;
+        std::vector<std::string> words;
 };
