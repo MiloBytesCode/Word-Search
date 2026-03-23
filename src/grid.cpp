@@ -63,3 +63,13 @@ ostream& operator<<(ostream& ostr, const Grid& grid)
     }
     return ostr;
 }
+
+int Grid::numRows() const
+{
+    return letters.rows();
+}
+
+int Grid::numCols() const
+{
+    return letters.cols();
+}

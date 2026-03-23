@@ -9,6 +9,8 @@
 #include "dictionary.h"
 #include "grid.h"
 #include <fstream>
+#include <iomanip>
+#include <sstream>
 
 void findMatches(Dictionary& dict, Grid& grid);
 

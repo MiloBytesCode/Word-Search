@@ -7,11 +7,62 @@
 /* ========================================================================= */
 
 #include "word_search.h"
+using namespace std;
+
 
 void findMatches(Dictionary& dict, Grid& grid)
 {
+    ofstream found_words("test_output.txt");
+    // possible directions to expand word vector
+    int dir_row[8] = {-1, -1,  0,  1,  1,  1,  0, -1};
+    int dir_col[8] = { 0,  1,  1,  1,  0, -1, -1, -1};
 
-}
+    for (int i = 0; i < grid.numRows(); i++)
+    {
+        for (int j = 0; j < grid.numCols(); j++)
+        {
+            for (int k = 0; k < 8; k++)
+            // iterate through all directions available to current index
+            {
+                // instantiate current word and save place in grid
+                string potential_word = "";
+                int r = i;
+                int c = j;
+
+                while (r < grid.numRows() && c < grid.numCols() && r >= 0 && c >= 0)
+                {
+                    // add letter to potential word
+                    potential_word += grid.readIndex(r,c);
+
+                    // once word is at least 5 characters, test against dict
+                    if (potential_word.length() >= 5)
+                    {
+                        int word_index = dict.wordLookup(potential_word);
+                        if (word_index != -1)
+                        {
+                            // setup proper format for output
+                            ostringstream format;
+                            format << left
+                                << setw(10) << "word"
+                                << setw(20) << "start point (i,j)"
+                                << setw(10) << "found index" << endl
+                                << setw(10) << potential_word
+                                << setw(20) << "(" << i << "," << j << ")"
+                                << setw(10) << word_index << endl;
+
+                            // convert to string and push into output file
+                            found_words << format.str();
+                        } // endif wordMatch
+                    } // endif word length >= 5
+
+                    // move in direction
+                    r += dir_row[k];
+                    c += dir_col[k];
+                } // end while in bounds
+            } // end for (k)
+        } // end for (j)
+    } // end for (i)
+} // end findMatches
 
 void search()
 {

@@ -15,6 +15,8 @@ class Grid
         // functionality
         Grid(const std::string& letterGrid_fn);
         char readIndex(int row, int col) const;
+        int numRows() const;
+        int numCols() const;
 
         // operators
         friend std::ostream& operator<<(std::ostream& ostr, const Grid& grid);
