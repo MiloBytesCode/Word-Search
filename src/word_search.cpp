@@ -10,7 +10,7 @@
 using namespace std;
 
 
-void findMatches(Dictionary& dict, Grid& grid)
+void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 {
     ofstream found_words("test_output.txt");
     // possible directions to expand word vector
@@ -66,5 +66,28 @@ void findMatches(Dictionary& dict, Grid& grid)
 
 void search()
 {
+    string grid_file, dict_file, out_file;
 
+    // get file names from keyboard input
+    cout << "Enter name for \"GRID_FILE\": ";
+    cin >> grid_file;
+
+    cout << "Enter name for \"DICT_FILE\": ";
+    cin >> dict_file;
+
+    // create dict and grid objects to perform search and match
+    Grid grid(grid_file);
+    Dictionary dict(dict_file);
+
+    dict.sort();
+
+    // get name for output file
+    cout << "Enter name for \"OUTPUT_FILE\": ";
+    cin >> out_file;
+
+    cout << "Search started...";
+    findMatches(dict, grid, out_file);
+
+    // search complete and data written to out file
+    cout << "completed\nOutput written to \"" << out_file << "\"\n";
 }
