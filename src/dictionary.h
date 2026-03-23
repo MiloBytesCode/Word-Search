@@ -14,7 +14,7 @@ class Dictionary
 {
     public:
         // functionality
-        Dictionary(std::string dictName);
+        Dictionary(const std::string& dictName);
         void sort();
         int wordLookup(std::string word) const;
 

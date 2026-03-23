@@ -6,26 +6,30 @@
 // The implementation for the Dictionary Class
 /* ========================================================================= */
 
-#include "grid.h"
+#include "dictionary.h"
 #include <fstream>
 #include <cctype>
 #include "d_matrix.h"
 using namespace std;
 
-Grid::Grid(string letterGrid_fn)
+Dictionary::Dictionary(const string& dictName)
 // given a letterGrid file, creates a Grid object
 {
     // open and read file
-    ifstream GridFile("../" + letterGrid_fn);
+    ifstream dict_file("../" + dictName);
 
     // runs if cannot open file
-    if (!GridFile) {
+    if (!dict_file) {
         cerr << "Error opening grid file\n";
         return;
     }
-    // read words into vec
-    while (getline (DictFile, DictLine)) {
-        words.push_back(DictLine);
+
+    // read words into words vector
+    string line;
+    while (getline(dict_file, line))
+    {
+        if (!line.empty())
+            words.push_back(line);
     }
 }
 
