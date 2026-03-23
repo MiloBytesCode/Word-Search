@@ -18,7 +18,12 @@ Dictionary::Dictionary(string dictName)
 {
     string DictLine;
     // open and read file
-    ifstream DictFile("dictionary.txt");
+        ifstream DictFile("../" + dictName);
+    // runs if cannot open file
+    if (!DictFile) {
+        cerr << "Error opening file\n";
+        return;
+    }
     // read words into vec
     while (getline (DictFile, DictLine)) {
         words.push_back(DictLine);
