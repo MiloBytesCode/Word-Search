@@ -36,7 +36,8 @@ void Dictionary::sort()
     // iterates through vector
     for(int i = 0; i < words.size(); ++i) {
         int current_min = i;
-        // iterates through unsorted portion of vector, keeping track of index with the lowest value
+        // iterates through unsorted portion of vector, keeping track of index 
+        // with the lowest value
         for(int j = i + 1; j < words.size(); ++j){
             if(words[j] < words[current_min]){
                 current_min = j;

@@ -7,14 +7,18 @@
 /* ========================================================================= */
 
 #include "d_matrix.h"
+#include <iostream>
 
 class Grid
 {
     public:
         // functionality
-        Grid(std::string letterGrid_fn);
+        Grid(const std::string& letterGrid_fn);
         char readIndex(int row, int col) const;
 
+        // operators
+        friend std::ostream& operator<<(std::ostream& ostr, const Grid& grid);
+
     private:
-        matrix<std::string> letters;
+        matrix<char> letters;
 };
