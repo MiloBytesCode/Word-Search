@@ -8,6 +8,9 @@
 
 #include "grid.h"
 #include <fstream>
+#include <cctype>
+#include <vector>
+#include "d_matrix.h"
 using namespace std;
 
 Grid::Grid(const string& letterGrid_fn)
@@ -44,7 +47,6 @@ Grid::Grid(const string& letterGrid_fn)
 }
 
 char Grid::readIndex(int row, int col) const
-// given a row and col, returns the value at that index
 {
     return letters[row][col];
 }
