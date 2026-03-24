@@ -32,6 +32,9 @@
         "-Wextra",
         "-g",
         "src/main.cpp",
+        "src/word_search.cpp",
+        "src/dictionary.cpp",
+        "src/grid.cpp",
         "-o",
         "build/out"
       ],

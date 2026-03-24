@@ -22,6 +22,13 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 
     int total_words_found = 0;
 
+    found_words << left
+            << setw(15) << "word"
+            << setw(22) << "start point (i,j)"
+            << setw(12) << "found index"
+            << "\n";
+    //new thing
+
     for (int i = 0; i < grid.numRows(); i++)
     {
         for (int j = 0; j < grid.numCols(); j++)
@@ -49,9 +56,12 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                             cout << "word found [" << total_words_found << "]\n";
 
                             // setup proper format for output
-                            found_words << "word        start point (i,j)      found index\n";
-                            found_words << "" << potential_word <<"  (" << i << "," << j << ")";
-                            found_words << "    " << word_index << "\n";
+                            //found_words << "word        start point (i,j)      found index\n";
+                            found_words << left
+                            << setw(15) << potential_word
+                            << setw(22) << ("(" + to_string(i) + "," + to_string(j) + ")")
+                            << setw(12) << word_index
+                            << "\n";
                         } // endif wordMatch
                     } // endif word length >= 5
 
