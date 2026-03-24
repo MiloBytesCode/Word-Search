@@ -18,6 +18,7 @@
       "options": {
         "cwd": "${workspaceFolder}"
       },
+      "external-console" : true,
       "problemMatcher": ["$gcc"],
       "group": { "kind": "build", "isDefault": true }
     },

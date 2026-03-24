@@ -11,8 +11,6 @@
 #include "d_matrix.h"
 #include <iostream>
 
-#pragma once
-
 class Grid
 {
     public:

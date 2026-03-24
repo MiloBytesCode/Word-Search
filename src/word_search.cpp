@@ -15,10 +15,12 @@ using namespace std;
 
 void findMatches(Dictionary& dict, Grid& grid, string output_fn)
 {
-    ofstream found_words((output_fn + ".txt"));
+    ofstream found_words(output_fn);
     // possible directions to expand word vector
     int dir_row[8] = {-1, -1,  0,  1,  1,  1,  0, -1};
     int dir_col[8] = { 0,  1,  1,  1,  0, -1, -1, -1};
+
+    int total_words_found = 0;
 
     for (int i = 0; i < grid.numRows(); i++)
     {
@@ -40,24 +42,16 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                     // once word is at least 5 characters, test against dict
                     if (potential_word.length() >= 5)
                     {
-                        
                         int word_index = dict.wordLookup(potential_word);
-                        cout << potential_word << endl;
                         if (word_index != -1)
                         {
-                            cout << "word found";
-                            // setup proper format for output
-                            ostringstream format;
-                            format << left
-                                << setw(10) << "word"
-                                << setw(20) << "start point (i,j)"
-                                << setw(10) << "found index" << endl
-                                << setw(10) << potential_word
-                                << setw(20) << "(" << i << "," << j << ")"
-                                << setw(10) << word_index << endl;
+                            total_words_found++;
+                            cout << "word found [" << total_words_found << "]\n";
 
-                            // convert to string and push into output file
-                            found_words << format.str();
+                            // setup proper format for output
+                            found_words << "word        start point (i,j)      found index\n";
+                            found_words << "" << potential_word <<"  (" << i << "," << j << ")";
+                            found_words << "    " << word_index << "\n";
                         } // endif wordMatch
                     } // endif word length >= 5
 
@@ -87,8 +81,6 @@ void search()
     Dictionary dict(dict_file);
 
     dict.sort();
-
-    cout << dict.wordLookup("qcdcn");
 
     // get name for output file
     cout << "Enter name for \"OUTPUT_FILE\": ";

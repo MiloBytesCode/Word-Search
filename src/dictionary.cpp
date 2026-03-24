@@ -9,6 +9,7 @@
 #include "dictionary.h"
 #include <fstream>
 #include <cctype>
+#include <iostream>
 #include "d_matrix.h"
 using namespace std;
 
@@ -24,6 +25,7 @@ Dictionary::Dictionary(const string& dictName)
         return;
     }
 
+    cout << "Initializing dictionary...";
     // read words into words vector
     string line;
     while (getline(dict_file, line))
@@ -31,11 +33,13 @@ Dictionary::Dictionary(const string& dictName)
         if (!line.empty())
             words.push_back(line);
     }
+    cout << "done\n";
 }
 
 void Dictionary::sort()
 // uses selection sort to organize dictionary word vector
 {
+    cout << "Sorting dictionary...";
     // iterates through vector
     int size = words.size();
     for(int i = 0; i < size; ++i) {
@@ -50,6 +54,7 @@ void Dictionary::sort()
         // swaps 1st unsorted index with the lowest unsorted value
         swap(words[i], words[current_min]);
     }
+    cout << "done\n";
 }
 
 int Dictionary::wordLookup(string word) const

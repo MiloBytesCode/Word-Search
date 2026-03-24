@@ -23,28 +23,35 @@ Grid::Grid(const string& letterGrid_fn)
         return;
     }
 
-    vector<string> lines;
-    string line;
+    char c;
+    int rows, cols;
 
-    // read lines into vector
-    while (getline(letterGrid, line))
+    // read size of grid and resize matrix
+    letterGrid >> rows;
+    letterGrid >> cols;
+    letters.resize(rows, cols);
+    cout << "Creating grid with dimension (" << rows << "," << cols << ")...";
+
+    // read chars into the letters matrix
+    int i = 0, j = 0;
+    while (!letterGrid.eof())
     {
-        if (!line.empty())
-            lines.push_back(line);
-    }
+        letterGrid.get(c);
+        if (c == '\n')
+        {
+            i++;
+            j = 0;
+        } 
+        else if (c != ' ')
+        {
+            letters[i - 1][j] = c;
+            j++;
+        }
+    } // end while not EOF
 
-    // resize matric to fit all letters
-    int lines_total = lines.size();
-    int line_size = lines[0].size();
-    letters.resize(lines_total, line_size);
-
-    // populate matrix with letters
-    for (int i = 0; i < lines_total; i++)
-    {
-        for (int j = 0; j < line_size; j++)
-            letters[i][j] = lines[i][j];
-    }
-
+    cout << "done\n";
+    // close file once finished
+    letterGrid.close();
 }
 
 char Grid::readIndex(int row, int col) const

@@ -12,8 +12,6 @@
 #include <vector>
 #include <iostream>
 
-#pragma once
-
 class Dictionary
 {
     public:
