@@ -10,6 +10,8 @@
 #include <vector>
 #include <iostream>
 
+#pragma once
+
 class Dictionary
 {
     public:
@@ -24,3 +26,4 @@ class Dictionary
     private:
         std::vector<std::string> words;
 };
+

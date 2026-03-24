@@ -12,6 +12,6 @@
 #include <iomanip>
 #include <sstream>
 
-void findMatches(Dictionary& dict, Grid& grid);
+void findMatches(Dictionary& dict, Grid& grid, string output_fn);
 
 void search();

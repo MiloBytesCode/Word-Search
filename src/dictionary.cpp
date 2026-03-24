@@ -16,11 +16,11 @@ Dictionary::Dictionary(const string& dictName)
 // given a letterGrid file, creates a Grid object
 {
     // open and read file
-    ifstream dict_file("../" + dictName);
+    ifstream dict_file(dictName);
 
     // runs if cannot open file
     if (!dict_file) {
-        cerr << "Error opening grid file\n";
+        cerr << "Error opening dict file\n";
         return;
     }
 
