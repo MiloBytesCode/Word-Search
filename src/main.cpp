@@ -22,25 +22,6 @@ keyboard, (2) read the data from input files for grid and dictionary, (3) sort a
 dictionary, and (4) prints out candidate words that can be found in the dictionary.
 */
 {
-    // Reads name of grid file from keyboard
-    string GridFile;
-    cout << "Please enter the name of your gridfile : ";
-    cin >> GridFile;
-    Grid InputGrid (GridFile);
-    cout << "grid read!";
-    
-
-    // Read data from input grid file and dictionary
-    Dictionary InputDict("Dictionary");
-    cout << "Dict read!";
-
-    // Sort dictionary
-    InputDict.sort();
-    cout << "dict sorted!";
-
-    // Prints out candidtae words that are found in dictionary
-    findMatches(InputDict, InputGrid, "output");
-    cout << "matches found!";
-
+    search();
     return 0;
 } 

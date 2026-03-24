@@ -37,9 +37,12 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                     // once word is at least 5 characters, test against dict
                     if (potential_word.length() >= 5)
                     {
+                        
                         int word_index = dict.wordLookup(potential_word);
+                        cout << potential_word << endl;
                         if (word_index != -1)
                         {
+                            cout << "word found";
                             // setup proper format for output
                             ostringstream format;
                             format << left
@@ -75,11 +78,14 @@ void search()
     cout << "Enter name for \"DICT_FILE\": ";
     cin >> dict_file;
 
+
     // create dict and grid objects to perform search and match
     Grid grid(grid_file);
     Dictionary dict(dict_file);
 
     dict.sort();
+
+    cout << dict.wordLookup("qcdcn");
 
     // get name for output file
     cout << "Enter name for \"OUTPUT_FILE\": ";
