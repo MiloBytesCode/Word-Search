@@ -22,6 +22,8 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
     int dir_row[8] = {-1, -1,  0,  1,  1,  1,  0, -1};
     int dir_col[8] = { 0,  1,  1,  1,  0, -1, -1, -1};
 
+    int maximum_word_size = max(grid.numRows(), grid.numCols());
+
     int total_words_found = 0;
 
     found_words << left
@@ -29,7 +31,6 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
             << setw(22) << "start point (i,j)"
             << setw(12) << "found index"
             << "\n";
-    //new thing
 
     for (int i = 0; i < grid.numRows(); i++)
     {
@@ -43,7 +44,7 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                 int r = i;
                 int c = j;
 
-                while (r < grid.numRows() && c < grid.numCols() && r >= 0 && c >= 0)
+                for(int step = 0; step < maximum_word_size; step++)
                 {
                     // add letter to potential word
                     potential_word += grid.readIndex(r,c);
@@ -68,8 +69,8 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
                     } // endif word length >= 5
 
                     // move in direction
-                    r += dir_row[k];
-                    c += dir_col[k];
+                    r = (r + dir_row[k] + grid.numRows()) % grid.numRows();
+                    c = (c + dir_col[k] + grid.numCols()) % grid.numCols();
                 } // end while in bounds
             } // end for (k)
         } // end for (j)
