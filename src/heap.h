@@ -1,9 +1,9 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-3a
+// 11-zogwidrouhua-3b
 //
 // PROJECT WORD SEARCH
 //
-// The header for the Grid Class
+// The header for the heap Class
 /* ========================================================================= */
 #pragma once
 #include <iostream>

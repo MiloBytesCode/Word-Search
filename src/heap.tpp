@@ -1,3 +1,11 @@
+/* ========================================================================= */
+// 11-zogwidrouhua-3b
+//
+// PROJECT WORD SEARCH
+//
+// This file contains the template function to implements for the heap class
+// including sorting algorithms heap sort, quicksort.
+/* ========================================================================= */
 #include <vector>
 #include <fstream>
 #include <cctype>

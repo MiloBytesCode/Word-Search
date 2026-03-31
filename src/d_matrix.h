@@ -1,3 +1,10 @@
+/* ========================================================================= */
+// 11-zogwidrouhua-3b
+//
+// PROJECT WORD SEARCH
+//
+// The header for the matrix class
+/* ========================================================================= */
 #ifndef MATRIX_CLASS
 #define MATRIX_CLASS
 

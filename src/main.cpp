@@ -37,4 +37,4 @@ dictionary, and (4) prints out candidate words that can be found in the dictiona
     return 0;
 } 
 
-// In general Quicksort is fastest in, then heapsort, and lastly selection sort is the slowest.
+// In general Quicksort is fastest , and then heapsort, and lastly selection sort is the slowest.

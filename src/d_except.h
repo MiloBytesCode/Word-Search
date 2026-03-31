@@ -1,3 +1,10 @@
+/* ========================================================================= */
+// 11-zogwidrouhua-3b
+//
+// PROJECT WORD SEARCH
+//
+// The header for the exception classes
+/* ========================================================================= */
 #ifndef EXCEPTION_CLASSES
 #define EXCEPTION_CLASSES
 
