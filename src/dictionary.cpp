@@ -95,9 +95,11 @@ ostream& operator<<(ostream& ostr, const Dictionary& dict)
     return ostr;
 }
 
-vector<string> Dictionary::heapsort() {
+void Dictionary::heapsort() {
     Heap<string> h;
     h.initializeMaxHeap(words);
     words = h.heapsort();
-    return words;
+    for (const auto& word : words) {
+        std::cout << word << " ";
+    }
 }

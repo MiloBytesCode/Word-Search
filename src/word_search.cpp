@@ -77,7 +77,7 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
     } // end for (i)
 } // end findMatches
 
-void search()
+void search(int n)
 // prompts user for grid file, dictionary file, and output file. Then, a word
 // search is started and results are saved to the output file
 {
@@ -95,7 +95,9 @@ void search()
     Grid grid(grid_file);
     Dictionary dict(dict_file);
 
-    dict.sort();
+    if (n == 0) { dict.sort(); }
+    else {dict.heapsort();}
+    
 
     // get name for output file
     cout << "Enter name for \"OUTPUT_FILE\": ";

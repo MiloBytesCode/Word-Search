@@ -7,19 +7,6 @@
 
 using namespace std;
 
-/*public:
-
-        T parent(int);
-        T left(int);
-        T right(int);
-        T getItem(int);
-
-        void initializeMaxHeap();
-        void maxHeapify();
-        void buildMaxHeap();
-
-        vector<T> heapsort();*/
-
 template <typename T>
 T Heap<T>::parent(int n) {
     return this->stored[(n-1)/2];
@@ -51,7 +38,7 @@ void Heap<T>::maxHeapify(int n) {
     int left = 2*n + 1;
     int right = 2*n + 2;
     int largest = n;
-
+    
     if (left < stored.size() && this->stored[n] < this->stored[left]) {
         largest = left;
     }
