@@ -12,4 +12,5 @@
 #include "grid.h"
 
 void findMatches(Dictionary& dict, Grid& grid, string output_fn);
-void search(int); //0 - quicksort, 1 - heapsort
+void search(int sortType); //0 - quicksort, 1 - heapsort, 2 - selection sort
+//void search(int); //0 - quicksort, 1 - heapsort

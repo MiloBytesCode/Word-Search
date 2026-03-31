@@ -1,5 +1,5 @@
 /* ========================================================================= */
-// 11-zogwidrouhua-3a
+// 11-zogwidrouhua-3b
 //
 // PROJECT WORD SEARCH
 //
@@ -20,6 +20,21 @@ keyboard, (2) read the data from input files for grid and dictionary, (3) sort a
 dictionary, and (4) prints out candidate words that can be found in the dictionary.
 */
 {
+    /*
     search(1);
     return 0;
+    */
+   int choice;
+
+    cout << "Choose sorting algorithm:\n";
+    cout << "0 = selection sort\n";
+    cout << "1 = quicksort\n";
+    cout << "2 = heapsort\n";
+    cout << "Enter choice: ";
+    cin >> choice;
+
+    search(choice);
+    return 0;
 } 
+
+// In general Quicksort is fastest in, then heapsort, and lastly selection sort is the slowest.

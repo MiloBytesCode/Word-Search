@@ -68,7 +68,7 @@ vector<T> Heap<T>::heapsort() {
 }
 */
 
-// corrected versions below
+// updated
 
 template <typename T>
 int Heap<T>::parent(int n) const {

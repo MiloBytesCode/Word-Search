@@ -77,7 +77,7 @@ void findMatches(Dictionary& dict, Grid& grid, string output_fn)
     } // end for (i)
 } // end findMatches
 
-void search(int n)
+void search(int sortType)
 // prompts user for grid file, dictionary file, and output file. Then, a word
 // search is started and results are saved to the output file
 {
@@ -94,11 +94,35 @@ void search(int n)
     // create dict and grid objects to perform search and match
     Grid grid(grid_file);
     Dictionary dict(dict_file);
-
+    /*
     if (n == 0) { dict.sort(); }
     else {dict.heapsort();}
-    
+    */
 
+     // choose sorting algorithm
+    if (sortType == 0) {
+        dict.sort();          // selection sort
+    }
+    else if (sortType == 1) {
+        dict.quicksort();     // quicksort
+    }
+    else if (sortType == 2) {
+        dict.heapsort();      // heapsort
+    }
+    else {
+        cout << "Invalid sorting choice. Using selection sort.\n";
+        dict.sort();
+    }
+
+    cout << "Enter name for \"OUTPUT_FILE\": ";
+    cin >> out_file;
+
+    cout << "Search started...";
+    findMatches(dict, grid, out_file);
+
+    cout << "completed\nOutput written to \"" << out_file << "\"\n";
+    
+/*
     // get name for output file
     cout << "Enter name for \"OUTPUT_FILE\": ";
     cin >> out_file;
@@ -108,4 +132,5 @@ void search(int n)
 
     // search complete and data written to out file
     cout << "completed\nOutput written to \"" << out_file << "\"\n";
+    */
 } // end search
