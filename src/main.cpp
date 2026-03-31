@@ -10,6 +10,7 @@
 #include "dictionary.h"
 #include "word_search.h"
 #include "grid.h"
+#include "heap.h"
 using namespace std;
 
 int main()
