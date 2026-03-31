@@ -20,7 +20,8 @@ class Dictionary
         // functionality
         Dictionary(const std::string& dictName);
         void sort();
-        int wordLookup(std::string word) const;
+        void quicksort();
+        int wordLookup(const std::string& word) const;
         void heapsort();
 
         // operators
@@ -28,5 +29,9 @@ class Dictionary
 
     private:
         std::vector<std::string> words;
+
+        // quicksort helper functions
+        void quicksortHelper(int low, int high);
+        int partition(int low, int high);
 };
 

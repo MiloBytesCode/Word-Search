@@ -43,7 +43,7 @@ void Dictionary::sort()
     cout << "Sorting dictionary...";
     // iterates through vector
     int size = words.size();
-    for(int i = 0; i < size; ++i) {
+    for(int i = 0; i < size -1; ++i) {
         int current_min = i;
         // iterates through unsorted portion of vector, keeping track of index 
         // with the lowest value
@@ -58,6 +58,7 @@ void Dictionary::sort()
     cout << "done\n";
 } // end selection sort
 
+/*
 int Dictionary::wordLookup(string word) const
 // given a word, returns index of word in dictionary if it exists, else -1
 {
@@ -84,7 +85,29 @@ int Dictionary::wordLookup(string word) const
     // returns -1 if not found
     return -1;
 } // end wordLookup
+*/
 
+int Dictionary::wordLookup(const string& word) const
+{
+    int lowest = 0;
+    int highest = words.size() - 1;
+
+    while (lowest <= highest) {
+        int middle = (lowest + highest) / 2;
+
+        if (words[middle] == word) {
+            return middle;
+        }
+        else if (words[middle] < word) {
+            lowest = middle + 1;
+        }
+        else {
+            highest = middle - 1;
+        }
+    }
+
+    return -1;
+}
 ostream& operator<<(ostream& ostr, const Dictionary& dict)
 {
     // print all words in dictionary
@@ -94,12 +117,50 @@ ostream& operator<<(ostream& ostr, const Dictionary& dict)
     }
     return ostr;
 }
+void Dictionary::quicksort()
+{
+    cout << "Sorting dictionary with quicksort...";
+    if (!words.empty()) {
+        quicksortHelper(0, words.size() - 1);
+    }
+    cout << "done\n";
+}
+
+void Dictionary::quicksortHelper(int low, int high)
+{
+    if (low < high) {
+        int pivotIndex = partition(low, high);
+        quicksortHelper(low, pivotIndex - 1);
+        quicksortHelper(pivotIndex + 1, high);
+    }
+}
+
+int Dictionary::partition(int low, int high)
+{
+    string pivot = words[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (words[j] <= pivot) {
+            i++;
+            swap(words[i], words[j]);
+        }
+    }
+
+    swap(words[i + 1], words[high]);
+    return i + 1;
+}
 
 void Dictionary::heapsort() {
+    cout << "Sorting dictionary with heapsort...";
     Heap<string> h;
     h.initializeMaxHeap(words);
     words = h.heapsort();
+    cout << "done\n";
+    /*
     for (const auto& word : words) {
         std::cout << word << " ";
     }
+    */
 }
+    
