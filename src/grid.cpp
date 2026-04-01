@@ -22,33 +22,7 @@ Grid::Grid(const string& letterGrid_fn)
         cerr << "Error opening letter grid file\n";
         return;
     }
-/*
-    char c;
-    int rows, cols;
 
-    // read size of grid and resize matrix
-    letterGrid >> rows;
-    letterGrid >> cols;
-    letters.resize(rows, cols);
-    cout << "Creating grid with dimension (" << rows << "," << cols << ")...";
-
-    // read chars into the letters matrix
-    int i = 0, j = 0;
-    while (!letterGrid.eof())
-    {
-        letterGrid.get(c);
-        if (c == '\n')
-        {
-            i++;
-            j = 0;
-        } 
-        else if (c != ' ')
-        {
-            letters[i - 1][j] = c;
-            j++;
-        }
-    } // end while not EOF
-*/
     int rows, cols;
 
     // read size of grid and resize matrix

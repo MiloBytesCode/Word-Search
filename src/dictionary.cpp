@@ -58,34 +58,7 @@ void Dictionary::sort()
     cout << "done\n";
 } // end selection sort
 
-/*
-int Dictionary::wordLookup(string word) const
-// given a word, returns index of word in dictionary if it exists, else -1
-{
-    int lowest = 0;
-    int highest = words.size() - 1;
 
-    while(lowest <= highest){
-        int middle = (lowest + highest) / 2;
-        // if word is found this evaulates as true and returns index of word
-        if(words[middle] == word){
-            return middle;
-        }
-        // if word is greater than middle word, changes the lowest possible 
-        // index to midd + 1
-        else if(words[middle] < word){
-            lowest = middle + 1;
-        }
-        // only get here if words[middle] > word, so now highest possible value
-        // is middle - 1
-        else{
-            highest = middle - 1;
-        }
-    } // end while
-    // returns -1 if not found
-    return -1;
-} // end wordLookup
-*/
 
 // updated logic for word lookup
 int Dictionary::wordLookup(const string& word) const

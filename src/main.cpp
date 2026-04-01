@@ -20,10 +20,7 @@ keyboard, (2) read the data from input files for grid and dictionary, (3) sort a
 dictionary, and (4) prints out candidate words that can be found in the dictionary.
 */
 {
-    /*
-    search(1);
-    return 0;
-    */
+    
    int choice;
 
     cout << "Choose sorting algorithm:\n";
